@@ -48,7 +48,8 @@ public class Instructor {
 	// mappedBy = "instructor" means this object is linked by instructor field from
 	// Course Object
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "instructor", cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "instructor", cascade = { CascadeType.PERSIST, CascadeType.MERGE,
+			CascadeType.DETACH, CascadeType.REFRESH })
 	private List<Course> courses;
 
 	public Instructor() {
